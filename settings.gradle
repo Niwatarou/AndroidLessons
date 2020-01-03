@@ -1,0 +1,2 @@
+include ':app', ':p0141_menuadv', ':p0151_contextmenu', ':p0161_dynamiclayout', ':p0171_dynamiclayout2', ':p0181_dynamiclayout3', ':p0191_simplecalculator', ':p0201_simpleanimation', ':p0211_twoactivity'
+rootProject.name='Android lessons'
