@@ -1,2 +1,4 @@
-include ':app', ':p0141_menuadv', ':p0151_contextmenu', ':p0161_dynamiclayout', ':p0171_dynamiclayout2', ':p0181_dynamiclayout3', ':p0191_simplecalculator', ':p0201_simpleanimation', ':p0211_twoactivity', ':p0231_oneactivitystate', ':p0241_twoactivitystate', ':p0261_intentfilter'
+include ':app', ':p0141_menuadv', ':p0151_contextmenu', ':p0161_dynamiclayout', ':p0171_dynamiclayout2', ':p0181_dynamiclayout3', ':p0191_simplecalculator', ':p0201_simpleanimation', ':p0211_twoactivity', ':p0231_oneactivitystate', ':p0241_twoactivitystate', ':p0261_intentfilter', ':p0262_intentfilter2'
 rootProject.name='Android lessons'
+include ':p0271_getintentaction'
+include ':p0281_intentextras'
