@@ -2,3 +2,5 @@ include ':app', ':p0141_menuadv', ':p0151_contextmenu', ':p0161_dynamiclayout', 
 rootProject.name='Android lessons'
 include ':p0271_getintentaction'
 include ':p0281_intentextras'
+include ':p0291_simpleactivityresult'
+include ':p0301_activityresult'
