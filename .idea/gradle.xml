@@ -28,6 +28,10 @@
             <option value="$PROJECT_DIR$/p0281_intentextras" />
             <option value="$PROJECT_DIR$/p0291_simpleactivityresult" />
             <option value="$PROJECT_DIR$/p0301_activityresult" />
+            <option value="$PROJECT_DIR$/p0311_simpleintents" />
+            <option value="$PROJECT_DIR$/p0321_simplebrowser" />
+            <option value="$PROJECT_DIR$/p0331_shaedpreferences" />
+            <option value="$PROJECT_DIR$/p0341_simplesqlite" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
