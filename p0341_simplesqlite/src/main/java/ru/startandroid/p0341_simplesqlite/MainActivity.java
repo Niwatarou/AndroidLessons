@@ -16,8 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     final String LOG = "myLogs";
 
-    Button btnAdd, btnRead, btnClear;
-    EditText etName, etEmail;
+    Button btnAdd, btnRead, btnClear, btnUpd, btnDel;
+    EditText etName, etEmail, etID;
 
     DBHelper dbHelper;
 
@@ -35,8 +35,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnClear = findViewById(R.id.btnClear);
         btnClear.setOnClickListener(this);
 
+        btnUpd = findViewById(R.id.btnUpd);
+        btnUpd.setOnClickListener(this);
+
+        btnDel = findViewById(R.id.btnDel);
+        btnDel.setOnClickListener(this);
+
         etName = findViewById(R.id.etName);
         etEmail = findViewById(R.id.etEmail);
+        etID = findViewById(R.id.etID);
 
         // создаем объект для создания и управления версиями БД
         dbHelper = new DBHelper(this);
@@ -51,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // получаем данные из полей ввода
         String name = etName.getText().toString();
         String email = etEmail.getText().toString();
+        String id = etID.getText().toString();
 //        Log.d(LOG, "DEBUG: Variables initialized.");
         // подключаемся к БД
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -67,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // вставляем запись и получаем ее ID
                 long rowID = db.insert("mytable", null, cv);
                 Log.d(LOG, "row inserted, ID = " + rowID);
+                etID.setText("");
                 etName.setText("");
                 etEmail.setText("");
                 break;
@@ -106,6 +115,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // удаляем все записи
                 int clearCount = db.delete("mytable", null, null);
                 Log.d(LOG, "deleted rows count = " + clearCount);
+                etID.setText("");
+                etName.setText("");
+                etEmail.setText("");
+                break;
+            case R.id.btnUpd:
+                if(id.equalsIgnoreCase("")) {
+                    break;
+                }
+                Log.d(LOG, "--- Update mytable: ---");
+                // подготовим значения для обновления
+                cv.put("name", name);
+                cv.put("email", email);
+                // обновляем по id
+                int updCount = db.update("mytable", cv, "id = ?",
+                        new String[] { id });
+                Log.d(LOG, "updated rows count = " + updCount);
+                etID.setText("");
+                etName.setText("");
+                etEmail.setText("");
+                break;
+            case R.id.btnDel:
+                if(id.equalsIgnoreCase("")) {
+                    break;
+                }
+                Log.d(LOG, "--- Delete from mytable: ---");
+                // удаляем по id
+                int delCount = db.delete("mytable", "id = " + id, null);
+                Log.d(LOG, "deleted rows count = " + delCount);
+                etID.setText("");
+                etName.setText("");
+                etEmail.setText("");
                 break;
         }
         // закрываем подключение к БД
